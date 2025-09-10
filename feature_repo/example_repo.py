@@ -20,7 +20,7 @@ instruction = Entity(
     name="instruction",
     description="instruction sample id",
     value_type=ValueType.INT64,
-    join_key="instruction_id",
+    join_keys=["instruction_id"],
 )
 
 # Data sources - Ray offline store works with FileSource

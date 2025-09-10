@@ -79,7 +79,9 @@ def run_demo():
     print(f"   ✓ Entities ({len(entities)}):")
     for entity in entities:
         print(f"     - {entity.name}: {entity.description}")
-        print(f"       Join key: {entity.join_key}")
+        # Handle both old (join_keys) and new (join_key) Feast versions
+        join_keys = getattr(entity, 'join_keys', None) or [getattr(entity, 'join_key', 'unknown')]
+        print(f"       Join keys: {join_keys}")
         print(f"       Value type: {entity.value_type}")
     
     # List all feature views
