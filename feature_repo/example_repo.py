@@ -13,7 +13,7 @@ from feast.on_demand_feature_view import on_demand_feature_view
 from feast.types import Float32, Float64, Int64, String
 
 # Constants related to the generated data sets
-CURRENT_DIR = Path(__file__).parent
+CURRENT_DIR = "/shared-data"
 
 # Entity definitions for alpaca dataset
 instruction = Entity(
@@ -27,7 +27,7 @@ instruction = Entity(
 # These will be processed by Ray for efficient distributed data access
 alpaca_instructions_source = FileSource(
     name="alpaca_instructions",
-    path=f"{CURRENT_DIR}/data/alpaca_data.parquet",
+    path=f"{CURRENT_DIR}/alpaca_data.parquet",
     timestamp_field="event_timestamp",
     created_timestamp_column="created",
 )
